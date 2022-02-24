@@ -12,7 +12,21 @@ lint path/to/file/or/dir
 # Lint all .sql files with SQLFluff with $Dialect dialect
 lint $Dialect
 # Lint SQL file or directory containing SQL files with $Dialect dialect
-lint $Dialect path/to/file/or/dir  
+lint $Dialect path/to/file/or/dir
+
+#########################
+#        WARNING        #
+# Use this with caution #
+#########################
+
+# Fix all .sql files with SQLFluff with Oracle dialect
+fix
+# Fix SQL file or directory containing SQL files with Oracle dialect
+fix path/to/file/or/dir  
+# Fix all .sql files with SQLFluff with $Dialect dialect
+fix $Dialect
+# Fix SQL file or directory containing SQL files with $Dialect dialect
+fix $Dialect path/to/file/or/dir
 ```
 
 Where $Dialect in:

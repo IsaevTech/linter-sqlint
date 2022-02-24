@@ -1,0 +1,19 @@
+#!/bin/bash
+sqlfluff --version
+
+if [ $# -eq 0 ]; then
+    sqlfluff fix --dialect oracle --disable_progress_bar
+else
+    case $1 in
+    ansi | bigquery | exasol | hive | mysql | oracle | postgres | redshift | snowflake | spark3 | sqlite | teradata | tsql)
+        if [ $# -eq 1 ]; then
+            sqlfluff fix --dialect "$1" --disable_progress_bar --force
+        else
+            sqlfluff fix --dialect "$1" --disable_progress_bar --force "${@:2}"
+        fi
+        ;;
+    dialects) sqlfluff dialects ;;
+    rules) sqlfluff rules ;;
+    *) sqlfluff fix --dialect oracle --disable_progress_bar --force "$@" ;;
+    esac
+fi
