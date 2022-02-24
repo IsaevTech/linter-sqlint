@@ -1,0 +1,10 @@
+#!/bin/bash
+sqlfluff --version
+sqlfluff dialects
+sqlfluff rules
+
+if [ $# -eq 0 ]; then
+    sqlfluff lint --dialect oracle --disable_progress_bar
+else
+    sqlfluff lint --dialect oracle --disable_progress_bar "$@"
+fi
