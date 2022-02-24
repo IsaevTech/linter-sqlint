@@ -1,103 +1,19 @@
 #!/bin/bash
 sqlfluff --version
-sqlfluff dialects
-sqlfluff rules
 
 if [ $# -eq 0 ]; then
     sqlfluff lint --dialect oracle --disable_progress_bar
 else
     case $1 in
-    ansi)
+    ansi | bigquery | exasol | hive | mysql | oracle | postgres | redshift | snowflake | spark3 | sqlite | teradata | tsql)
         if [ $# -eq 1 ]; then
             sqlfluff lint --dialect "$1" --disable_progress_bar
         else
             sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
         fi
         ;;
-    bigquery)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    exasol)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    hive)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    mysql)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    oracle)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    postgres)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    redshift)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    snowflake)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    spark3)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    sqlite)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    teradata)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
-    tsql)
-        if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
-        else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
-        fi
-        ;;
+    dialects) sqlfluff dialects ;;
+    rules) sqlfluff rules ;;
     *) sqlfluff lint --dialect oracle --disable_progress_bar "$@" ;;
     esac
 fi
