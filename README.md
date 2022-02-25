@@ -1,4 +1,4 @@
-# Python Linter
+# SQL Linter
 
 [![Build Status](https://ci.isaev.tech/api/badges/IsaevTech/sqlint/status.svg)](https://ci.isaev.tech/IsaevTech/sqlint)
 
