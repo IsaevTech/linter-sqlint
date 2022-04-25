@@ -1,6 +1,6 @@
 # SQL Linter
 
-[![Build Status](https://ci.isaev.tech/api/badges/IsaevTech/sqlint/status.svg)](https://ci.isaev.tech/IsaevTech/sqlint)
+[![Build Status](https://ci.ismv.ru/api/badges/IsaevTech/sqlint/status.svg)](https://ci.ismv.ru/IsaevTech/sqlint)
 
 ## Usage
 
