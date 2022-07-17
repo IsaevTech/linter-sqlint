@@ -1,6 +1,6 @@
 FROM python:3-slim
-COPY req.txt Dockerfile /
+COPY requirements.txt Dockerfile /
+RUN pip --no-cache-dir install -r /requirements.txt
 COPY lint fix /usr/local/bin/
-RUN pip --no-cache-dir install -r /req.txt
 WORKDIR /code
 CMD ["lint"]
