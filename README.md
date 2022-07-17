@@ -1,6 +1,7 @@
 # SQL Linter
 
-[![Build Status](https://ci.ismv.ru/api/badges/IsaevTech/sqlint/status.svg)](https://ci.ismv.ru/IsaevTech/sqlint)
+[![Docker Image CI](https://github.com/IsaevTech/linter-sqlint/actions/workflows/docker-image.yml/badge.svg)](https://github.com/IsaevTech/linter-sqlint/actions/workflows/docker-image.yml)
+![Docker Pulls](https://img.shields.io/docker/pulls/ismv/linter-sqlint)
 
 ## Usage
 
