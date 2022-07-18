@@ -45,3 +45,10 @@ Where $Dialect in:
 - `sqlite` - sqlite dialect
 - `teradata` - teradata dialect
 - `tsql` - tsql dialect
+
+### Configuration
+
+| Env variable   | Description                                                                                                                                           | Default |
+| -------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- | ------- |
+| `TIMEOUT`      | Timeout for execution (see [timeout(1) man page](https://man7.org/linux/man-pages/man1/timeout.1.html))                                               | `2h`    |
+| `TIMEOUT_HARD` | Hard timeout for execution (if application doesn't react on SIGTERM, see [timeout(1) man page](https://man7.org/linux/man-pages/man1/timeout.1.html)) | `10m`   |

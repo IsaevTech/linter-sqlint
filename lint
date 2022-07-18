@@ -1,19 +1,22 @@
 #!/bin/bash
 sqlfluff --version
 
+export TIMEOUT="${TIMEOUT:-2h}"
+export TIMEOUT_HARD="${TIMEOUT_HARD:-10m}"
+
 if [ $# -eq 0 ]; then
-    sqlfluff lint --dialect oracle --disable_progress_bar
+    timeout -k "$TIMEOUT_HARD" "$TIMEOUT" sqlfluff lint --dialect oracle --disable_progress_bar
 else
     case $1 in
     ansi | bigquery | exasol | hive | mysql | oracle | postgres | redshift | snowflake | spark3 | sqlite | teradata | tsql)
         if [ $# -eq 1 ]; then
-            sqlfluff lint --dialect "$1" --disable_progress_bar
+            timeout -k "$TIMEOUT_HARD" "$TIMEOUT" sqlfluff lint --dialect "$1" --disable_progress_bar
         else
-            sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
+            timeout -k "$TIMEOUT_HARD" "$TIMEOUT" sqlfluff lint --dialect "$1" --disable_progress_bar "${@:2}"
         fi
         ;;
     dialects) sqlfluff dialects ;;
     rules) sqlfluff rules ;;
-    *) sqlfluff lint --dialect oracle --disable_progress_bar "$@" ;;
+    *) timeout -k "$TIMEOUT_HARD" "$TIMEOUT" sqlfluff lint --dialect oracle --disable_progress_bar "$@" ;;
     esac
 fi
